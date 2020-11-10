@@ -12,7 +12,7 @@ namespace FashionShop.Controllers
 {
     public class ProductsController : Controller
     {
-        private Model1 db = new Model1();
+        private FashionShopEntities db = new FashionShopEntities();
 
         // GET: Products
         public ActionResult Index()

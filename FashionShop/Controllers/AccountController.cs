@@ -1,10 +1,12 @@
 ﻿using FashionShop.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace FashionShop.Controllers
@@ -12,7 +14,7 @@ namespace FashionShop.Controllers
     public class AccountController : Controller
     {
         // GET: Account
-        Model1 db = new Model1();
+        FashionShopEntities db = new FashionShopEntities();
         
         public static string GetMD5(string str)
         {
@@ -85,6 +87,69 @@ namespace FashionShop.Controllers
                 }
             }
             return View();
+        }
+        public ActionResult SendMailGetPassWord(User user)
+        {
+            if (db.Users.Any(x => x.Username == user.Username))
+            {
+                string a = RandomString(8);
+                var user2 = db.Users.Where(x => x.Username == user.Username).FirstOrDefault();
+                if (SendView(user2.Email, "Namngu"))
+                {
+                    user2.Password = a;
+                    db.Entry(user2).State = EntityState.Modified;
+                    db.SaveChanges();
+                    ViewBag.Kq = "Email Sent Successfully.";
+                }
+                else
+                    ViewBag.Kq = "Problem while sending email.";
+            }
+            else if (user.Username == null)
+                return View();
+            else
+                ViewBag.Kq = "There is no such account ";
+            return View();
+        }
+        private string RandomString(int size)
+        {
+            StringBuilder builder = new StringBuilder();
+            Random random = new Random();
+            char ch;
+            for (int i = 0; i < size; i++)
+            {
+                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
+                builder.Append(ch);
+            }
+            return builder.ToString();
+        }
+        private bool SendView(string EMAIL, string a)
+        {
+            ViewBag.Kq = EMAIL;
+            try
+            {
+                //Configuring webMail class to send emails  
+                //gmail smtp server  
+                WebMail.SmtpServer = "smtp.gmail.com";
+                //gmail port to send emails  
+                WebMail.SmtpPort = 587;
+                WebMail.SmtpUseDefaultCredentials = true;
+                //sending emails with secure protocol  
+                WebMail.EnableSsl = true;
+                //EmailId used to send emails from application  
+                WebMail.UserName = "vohoangan2000@gmail.com";
+                WebMail.Password = "an07042000";
+
+                //Sender email address.  
+                WebMail.From = "tranhanam1999@gmail.com";
+
+                //Send email  
+                WebMail.Send(to: EMAIL, subject: "Change Your password", body: "New you password " + a, cc: null, bcc: null, isBodyHtml: true);
+                return true; //"Email Sent Successfully.";
+            }
+            catch (Exception)
+            {
+                return false;// "Problem while sending email, Please check details.";
+            }
         }
     }
 }

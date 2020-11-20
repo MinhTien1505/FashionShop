@@ -14,7 +14,7 @@ namespace FashionShop.Controllers
     public class AccountController : Controller
     {
         // GET: Account
-        FashionShopEntities db = new FashionShopEntities();
+        FashionShopEntities1 db = new FashionShopEntities1();
         
         public static string GetMD5(string str)
         {

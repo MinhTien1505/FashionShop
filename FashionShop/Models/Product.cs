@@ -11,13 +11,15 @@ namespace FashionShop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Product
     {
         public int id { get; set; }
         public string Name { get; set; }
         public float Price { get; set; }
+        public string Image { get; set; }
         public string Description { get; set; }
-        public string Categoy { get; set; }
+        public string Category { get; set; }
+        public List<Product> ListProducts {get; set;}
     }
 }

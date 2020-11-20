@@ -53,6 +53,12 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -144,31 +150,31 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.cs" />
-    <Compile Include="Models\Model2.Context.cs">
+    <Compile Include="Models\My_DB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.Context.tt</DependentUpon>
+      <DependentUpon>My_DB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model2.cs">
+    <Compile Include="Models\My_DB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>My_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model2.Designer.cs">
+    <Compile Include="Models\My_DB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.edmx</DependentUpon>
+      <DependentUpon>My_DB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>My_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>My_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -177,29 +183,163 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\jquery.simpleLens.css" />
+    <Content Include="Content\css\jquery.smartmenus.bootstrap.css" />
+    <Content Include="Content\css\nouislider.css" />
+    <Content Include="Content\css\sequence-theme.modern-slide-in.css" />
+    <Content Include="Content\css\slick.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\theme-color\bridge-theme.css" />
+    <Content Include="Content\css\theme-color\dark-red-theme.css" />
+    <Content Include="Content\css\theme-color\default-theme.css" />
+    <Content Include="Content\css\theme-color\green-theme.css" />
+    <Content Include="Content\css\theme-color\lite-blue-theme.css" />
+    <Content Include="Content\css\theme-color\orange-theme.css" />
+    <Content Include="Content\css\theme-color\pink-theme.css" />
+    <Content Include="Content\css\theme-color\purple-theme.css" />
+    <Content Include="Content\css\theme-color\red-theme.css" />
+    <Content Include="Content\css\theme-color\yellow-theme.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\client-brand-css3.png" />
+    <Content Include="Content\img\client-brand-html5.png" />
+    <Content Include="Content\img\client-brand-java.png" />
+    <Content Include="Content\img\client-brand-joomla.png" />
+    <Content Include="Content\img\client-brand-jquery.png" />
+    <Content Include="Content\img\client-brand-wordpress.png" />
+    <Content Include="Content\img\close-icon.png" />
+    <Content Include="Content\img\electronics\electronic-1.png" />
+    <Content Include="Content\img\electronics\electronic-2.png" />
+    <Content Include="Content\img\electronics\electronic-3.png" />
+    <Content Include="Content\img\electronics\electronic-4.png" />
+    <Content Include="Content\img\electronics\electronic-5.png" />
+    <Content Include="Content\img\electronics\electronic-6.png" />
+    <Content Include="Content\img\electronics\electronic-7.png" />
+    <Content Include="Content\img\electronics\electronic-8.png" />
+    <Content Include="Content\img\fashion-banner.jpg" />
+    <Content Include="Content\img\fashion\1.jpg" />
+    <Content Include="Content\img\fashion\2.jpg" />
+    <Content Include="Content\img\fashion\3.jpg" />
+    <Content Include="Content\img\fashion\4.jpg" />
+    <Content Include="Content\img\fashion\5.jpg" />
+    <Content Include="Content\img\fashion\fashion-header-bg-8.jpg" />
+    <Content Include="Content\img\flag\english.jpg" />
+    <Content Include="Content\img\flag\french.jpg" />
+    <Content Include="Content\img\logo.jpg" />
+    <Content Include="Content\img\man-small-1.jpg" />
+    <Content Include="Content\img\man\polo-shirt-1.png" />
+    <Content Include="Content\img\man\polo-shirt-2.png" />
+    <Content Include="Content\img\man\polo-shirt-3.png" />
+    <Content Include="Content\img\man\polo-shirt-4.png" />
+    <Content Include="Content\img\man\polo-shirt-5.png" />
+    <Content Include="Content\img\man\polo-shirt-6.png" />
+    <Content Include="Content\img\man\t-shirt-1.png" />
+    <Content Include="Content\img\paypal.jpg" />
+    <Content Include="Content\img\promo-banner-1.jpg" />
+    <Content Include="Content\img\promo-banner-2.jpg" />
+    <Content Include="Content\img\promo-banner-3.jpg" />
+    <Content Include="Content\img\promo-banner-4.jpg" />
+    <Content Include="Content\img\promo-banner-5.jpg" />
+    <Content Include="Content\img\slider\1.jpg" />
+    <Content Include="Content\img\slider\2.jpg" />
+    <Content Include="Content\img\slider\3.jpg" />
+    <Content Include="Content\img\slider\4.jpg" />
+    <Content Include="Content\img\slider\5.jpg" />
+    <Content Include="Content\img\slider\ajax-loader.gif" />
+    <Content Include="Content\img\slider\bt-next%402x.png" />
+    <Content Include="Content\img\slider\bt-next.png" />
+    <Content Include="Content\img\slider\bt-prev%402x.png" />
+    <Content Include="Content\img\slider\bt-prev.png" />
+    <Content Include="Content\img\sports\sport-1.png" />
+    <Content Include="Content\img\sports\sport-2.png" />
+    <Content Include="Content\img\sports\sport-3.png" />
+    <Content Include="Content\img\sports\sport-4.png" />
+    <Content Include="Content\img\sports\sport-5.png" />
+    <Content Include="Content\img\sports\sport-6.png" />
+    <Content Include="Content\img\sports\sport-7.png" />
+    <Content Include="Content\img\sports\sport-8.png" />
+    <Content Include="Content\img\testimonial-bg-1.jpg" />
+    <Content Include="Content\img\testimonial-img-1.jpg" />
+    <Content Include="Content\img\testimonial-img-2.jpg" />
+    <Content Include="Content\img\testimonial-img-3.jpg" />
+    <Content Include="Content\img\view-slider\large\polo-shirt-1.png" />
+    <Content Include="Content\img\view-slider\large\polo-shirt-2.png" />
+    <Content Include="Content\img\view-slider\large\polo-shirt-3.png" />
+    <Content Include="Content\img\view-slider\large\polo-shirt-4.png" />
+    <Content Include="Content\img\view-slider\loading.gif" />
+    <Content Include="Content\img\view-slider\medium\polo-shirt-1.png" />
+    <Content Include="Content\img\view-slider\medium\polo-shirt-2.png" />
+    <Content Include="Content\img\view-slider\medium\polo-shirt-3.png" />
+    <Content Include="Content\img\view-slider\medium\polo-shirt-4.png" />
+    <Content Include="Content\img\view-slider\thumbnail\polo-shirt-1.png" />
+    <Content Include="Content\img\view-slider\thumbnail\polo-shirt-2.png" />
+    <Content Include="Content\img\view-slider\thumbnail\polo-shirt-3.png" />
+    <Content Include="Content\img\view-slider\thumbnail\polo-shirt-4.png" />
+    <Content Include="Content\img\woman-small-1.jpg" />
+    <Content Include="Content\img\woman-small-2.jpg" />
+    <Content Include="Content\img\women\girl-1.png" />
+    <Content Include="Content\img\women\girl-2.png" />
+    <Content Include="Content\img\women\girl-3.png" />
+    <Content Include="Content\img\women\girl-4.png" />
+    <Content Include="Content\img\women\girl-5.png" />
+    <Content Include="Content\img\women\girl-6.png" />
+    <Content Include="Content\img\women\girl-7.png" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\jquery.simpleGallery.js" />
+    <Content Include="Content\js\jquery.simpleLens.js" />
+    <Content Include="Content\js\jquery.smartmenus.bootstrap.js" />
+    <Content Include="Content\js\jquery.smartmenus.js" />
+    <Content Include="Content\js\nouislider.js" />
+    <Content Include="Content\js\sequence-theme.modern-slide-in.js" />
+    <Content Include="Content\js\sequence.js" />
+    <Content Include="Content\js\slick.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model2.Context.tt">
+    <Content Include="Models\My_DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model2.edmx</DependentUpon>
-      <LastGenOutput>Model2.Context.cs</LastGenOutput>
+      <DependentUpon>My_DB.edmx</DependentUpon>
+      <LastGenOutput>My_DB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model2.tt">
+    <Content Include="Models\My_DB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model2.edmx</DependentUpon>
-      <LastGenOutput>Model2.cs</LastGenOutput>
+      <DependentUpon>My_DB.edmx</DependentUpon>
+      <LastGenOutput>My_DB.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model2.edmx">
+    <EntityDeploy Include="Models\My_DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
+      <LastGenOutput>My_DB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model2.edmx.diagram">
-      <DependentUpon>Model2.edmx</DependentUpon>
+    <Content Include="Models\My_DB.edmx.diagram">
+      <DependentUpon>My_DB.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\scss\base\_base.scss" />
+    <Content Include="Content\scss\base\_mixins.scss" />
+    <Content Include="Content\scss\base\_variables.scss" />
+    <Content Include="Content\scss\layouts\_footer.scss" />
+    <Content Include="Content\scss\layouts\_header.scss" />
+    <Content Include="Content\scss\layouts\_nav.scss" />
+    <Content Include="Content\scss\modules\_buttons.scss" />
+    <Content Include="Content\scss\modules\_responsive.scss" />
+    <Content Include="Content\scss\modules\_sections.scss" />
+    <Content Include="Content\scss\modules\_typography.scss" />
+    <Content Include="Content\scss\style.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -227,15 +367,19 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\SendMailGetPassWord.cshtml" />
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Delete.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
-    <Content Include="Views\Account\SendMailGetPassWord.cshtml" />
+    <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\Item\AllProducts.cshtml" />
+    <Content Include="Views\Item\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="imageProduct\" />
     <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>

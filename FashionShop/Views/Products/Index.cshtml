@@ -1,9 +1,13 @@
-﻿@model IEnumerable<FashionShop.Models.Product>
+﻿@*@model IEnumerable<FashionShop.Models.Product>*@
 
 @{
     ViewBag.Title = "Index";
 }
 
+<!-- Thêm thư viện -->
+@model PagedList.IPagedList<FashionShop.Models.Product>
+@using PagedList.Mvc;
+<!-- Kết thúc-->
 <h2>Index</h2>
 
 <p>
@@ -12,40 +16,59 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Name
+            @*@Html.DisplayNameFor(model => model.Name)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            Price
+            @*@Html.DisplayNameFor(model => model.Price)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            Image
+            @*@Html.DisplayNameFor(model => model.Image)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Categoy)
+            Description
+            @*@Html.DisplayNameFor(model => model.Description)*@
+        </th>
+        <th>
+            Category
+            @*@Html.DisplayNameFor(model => model.Category)*@
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoy)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <img src="@(item.Image)" width="100px" height="100px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>
+<!-- Thêm mã phân trang -->
+<br />
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page }))
+<!-- Kết thúc -->

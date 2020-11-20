@@ -87,3 +87,7 @@ D:\WEB\FashionShop\FashionShop\obj\Debug\FashionShop.csproj.CoreCompileInputs.ca
 D:\WEB\FashionShop\FashionShop\obj\Debug\FashionShop.csproj.CopyComplete
 D:\WEB\FashionShop\FashionShop\obj\Debug\FashionShop.dll
 D:\WEB\FashionShop\FashionShop\obj\Debug\FashionShop.pdb
+D:\WEB\FashionShop\FashionShop\bin\PagedList.dll
+D:\WEB\FashionShop\FashionShop\bin\PagedList.Mvc.dll
+D:\WEB\FashionShop\FashionShop\bin\PagedList.xml
+D:\WEB\FashionShop\FashionShop\bin\PagedList.Mvc.xml

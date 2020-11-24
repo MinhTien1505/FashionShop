@@ -376,6 +376,32 @@
                             </div>
                         </div>
                         <div class="tab-content">
+                            <div class=" tab-pane fade in active" id="all">
+                                <ul class="row aa-product-catg">
+                                    <!-- start single product item -->
+                                    @foreach (Product prod in Model)
+                                    {
+                                        <li class="col-lg-4">
+                                            <figure>
+                                                <a class="aa-product-img" href="#"><img src="@prod.Image" width="180" height="250" alt="polo shirt img"></a>
+                                                <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                                                <figcaption>
+                                                    <h4 class="aa-product-title"><a href="#">@prod.Name.</a></h4>
+                                                    <span class="aa-product-price">@prod.Price.ToString("#,##0")₫</span><span class="aa-product-price"><del>$65.50</del></span>
+                                                    <p class="aa-product-descrip">@prod.Description</p>
+                                                </figcaption>
+                                            </figure>
+                                            <div class="aa-product-hvr-content">
+                                                <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
+                                                <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
+                                                <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal" data-name-product="@prod.Name" data-price-product="@prod.Price" data-id-product="@prod.id" data-description-product="@prod.Description" data-category-product="@prod.Category" data-image-product="@prod.Image"><span class="fa fa-search"></span></a>
+                                            </div>
+                                            <!-- product badge -->
+                                            <span class="aa-badge aa-sale" href="#">SALE!</span>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
                             <div class=" tab-pane fade" id="men">
                                 <ul class="aa-product-catg">
                                     <!-- start single product item -->
@@ -385,7 +411,7 @@
                                         {
                                             <li>
                                                 <figure>
-                                                    <a class="aa-product-img" href="#"><img src="@prod.Image" width="250" height="300" alt="polo shirt img"></a>
+                                                    <a class="aa-product-img" href="#"><img src="@prod.Image" width="180" height="250" alt="polo shirt img"></a>
                                                     <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                                                     <figcaption>
                                                         <h4 class="aa-product-title"><a href="#">@prod.Name.</a></h4>
@@ -414,7 +440,65 @@
                                         {
                                             <li>
                                                 <figure>
-                                                    <a class="aa-product-img" href="#"><img src="@prod.Image" width="250" height="300" alt="polo shirt img"></a>
+                                                    <a class="aa-product-img" href="#"><img src="@prod.Image" width="180" height="250" alt="polo shirt img"></a>
+                                                    <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                                                    <figcaption>
+                                                        <h4 class="aa-product-title"><a href="#">@prod.Name.</a></h4>
+                                                        <span class="aa-product-price">@prod.Price.ToString("#,##0")₫</span><span class="aa-product-price"><del>$65.50</del></span>
+                                                        <p class="aa-product-descrip">@prod.Description</p>
+                                                    </figcaption>
+                                                </figure>
+                                                <div class="aa-product-hvr-content">
+                                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
+                                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
+                                                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal" data-name-product="@prod.Name" data-price-product="@prod.Price" data-id-product="@prod.id" data-description-product="@prod.Description" data-category-product="@prod.Category" data-image-product="@prod.Image"><span class="fa fa-search"></span></a>
+                                                </div>
+                                                <!-- product badge -->
+                                                <span class="aa-badge aa-sale" href="#">SALE!</span>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                            <div class=" tab-pane fade" id="kids">
+                                <ul class="aa-product-catg">
+                                    <!-- start single product item -->
+                                    @foreach (Product prod in Model)
+                                    {
+                                        if (prod.Category == "Kids")
+                                        {
+                                            <li>
+                                                <figure>
+                                                    <a class="aa-product-img" href="#"><img src="@prod.Image" width="180" height="250" alt="polo shirt img"></a>
+                                                    <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                                                    <figcaption>
+                                                        <h4 class="aa-product-title"><a href="#">@prod.Name.</a></h4>
+                                                        <span class="aa-product-price">@prod.Price.ToString("#,##0")₫</span><span class="aa-product-price"><del>$65.50</del></span>
+                                                        <p class="aa-product-descrip">@prod.Description</p>
+                                                    </figcaption>
+                                                </figure>
+                                                <div class="aa-product-hvr-content">
+                                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
+                                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
+                                                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal" data-name-product="@prod.Name" data-price-product="@prod.Price" data-id-product="@prod.id" data-description-product="@prod.Description" data-category-product="@prod.Category" data-image-product="@prod.Image"><span class="fa fa-search"></span></a>
+                                                </div>
+                                                <!-- product badge -->
+                                                <span class="aa-badge aa-sale" href="#">SALE!</span>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                            <div class=" tab-pane fade" id="sports">
+                                <ul class="aa-product-catg">
+                                    <!-- start single product item -->
+                                    @foreach (Product prod in Model)
+                                    {
+                                        if (prod.Category == "Sports")
+                                        {
+                                            <li>
+                                                <figure>
+                                                    <a class="aa-product-img" href="#"><img src="@prod.Image" width="180" height="250" alt="polo shirt img"></a>
                                                     <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                                                     <figcaption>
                                                         <h4 class="aa-product-title"><a href="#">@prod.Name.</a></h4>
@@ -528,7 +612,7 @@
                         <div class="aa-sidebar-widget">
                             <h3>Category</h3>
                             <ul class="tag-cloud">
-                                <li><a href="#" onclick="change('All')">All</a></li>
+                                <li><a href="#all" class="active" data-toggle="tab">All</a></li>
                                 <li><a href="#men" data-toggle="tab">Men</a></li>
                                 <li><a href="#women" data-toggle="tab">Women</a></li>
                                 <li><a href="#kids" data-toggle="tab">Kids</a></li>

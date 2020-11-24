@@ -203,6 +203,7 @@
     <Content Include="Content\css\theme-color\yellow-theme.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\15369796-10154305661703155-18538714-o.jpg" />
     <Content Include="Content\img\client-brand-css3.png" />
     <Content Include="Content\img\client-brand-html5.png" />
     <Content Include="Content\img\client-brand-java.png" />
@@ -264,6 +265,7 @@
     <Content Include="Content\img\testimonial-img-1.jpg" />
     <Content Include="Content\img\testimonial-img-2.jpg" />
     <Content Include="Content\img\testimonial-img-3.jpg" />
+    <Content Include="Content\img\unnamed.jpg" />
     <Content Include="Content\img\view-slider\large\polo-shirt-1.png" />
     <Content Include="Content\img\view-slider\large\polo-shirt-2.png" />
     <Content Include="Content\img\view-slider\large\polo-shirt-3.png" />
@@ -301,6 +303,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\clothing-store-984396_1280.png" />
+    <Content Include="Image\fashion-1031469_1280.png" />
+    <Content Include="Image\slider-3-1.png" />
+    <Content Include="Image\store-984393_1280.png" />
+    <Content Include="Image\tshirt-2428521_1280.png" />
+    <Content Include="Image\unnamed.jpg" />
     <Content Include="Models\My_DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>My_DB.edmx</DependentUpon>
@@ -375,12 +383,12 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\Item\AllProducts.cshtml" />
-    <Content Include="Views\Item\Details.cshtml" />
+    <Content Include="Views\Item\ProductDetail.cshtml" />
+    <Content Include="Views\Item\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="imageProduct\" />
-    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,14 +1,15 @@
-﻿@using FashionShop.Models
+﻿
 @{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daily Shop | Product</title>
+    <title>Daily Shop | Contact</title>
 
     <!-- Font awesome -->
     <link href="/Content/css/font-awesome.css" rel="stylesheet">
@@ -43,9 +44,7 @@
     <![endif]-->
 
 </head>
-<!-- !Important notice -->
-<!-- Only for product page body tag have to added .productPage class -->
-<body class="productPage">
+<body>
     <!-- wpf loader Two -->
     <div id="wpf-loader-two">
         <div class="wpf-loader-two-inner">
@@ -125,7 +124,7 @@
                             <!-- logo  -->
                             <div class="aa-logo">
                                 <!-- Text based logo -->
-                                <a href="index">
+                                <a href="index.html">
                                     <span class="fa fa-shopping-cart"></span>
                                     <p>daily<strong>Shop</strong> <span>Your Shopping Partner</span></p>
                                 </a>
@@ -326,6 +325,7 @@
                 </div>
             </div>
         </div>
+        </div>
     </section>
     <!-- / menu -->
     <!-- catg header banner section -->
@@ -334,318 +334,88 @@
         <div class="aa-catg-head-banner-area">
             <div class="container">
                 <div class="aa-catg-head-banner-content">
-                    <h2>Fashion</h2>
+                    <h2>Contact</h2>
                     <ol class="breadcrumb">
-                        <li><a href="index">Home</a></li>
-                        <li class="active">All Products</li>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active">Contact</li>
                     </ol>
                 </div>
             </div>
         </div>
     </section>
     <!-- / catg header banner section -->
-    <!-- product category -->
-    <section id="aa-product-category">
+    <!-- start contact section -->
+    <section id="aa-contact">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 col-md-9 col-sm-8 col-md-push-3">
-                    <div class="aa-product-catg-content">
-                        <div class="aa-product-catg-head">
-                            <div class="aa-product-catg-head-left">
-                                <form action="" class="aa-sort-form">
-                                    <label for="">Sort by</label>
-                                    <select name="">
-                                        <option value="1" selected="">Default</option>
-                                        <option value="2">Name</option>
-                                        <option value="3">Price</option>
-                                        <option value="4">Date</option>
-                                    </select>
-                                </form>
-                                <form action="" class="aa-show-form">
-                                    <label for="">Show</label>
-                                    <select name="">
-                                        <option value="1" selected="12">12</option>
-                                        <option value="2">24</option>
-                                        <option value="3">36</option>
-                                    </select>
-                                </form>
-                            </div>
-                            <div class="aa-product-catg-head-right">
-                                <a id="grid-catg" href="#"><span class="fa fa-th"></span></a>
-                                <a id="list-catg" href="#"><span class="fa fa-list"></span></a>
-                            </div>
+                <div class="col-md-12">
+                    <div class="aa-contact-area">
+                        <div class="aa-contact-top">
+                            <h2>We are wating to assist you..</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, quos.</p>
                         </div>
-                        <div class="tab-content">
-                            <div class=" tab-pane fade" id="men">
-                                <ul class="aa-product-catg">
-                                    <!-- start single product item -->
-                                    @foreach (Product prod in Model)
-                                    {
-                                        if (prod.Category == "Men")
-                                        {
-                                            <li>
-                                                <figure>
-                                                    <a class="aa-product-img" href="#"><img src="@prod.Image" width="250" height="300" alt="polo shirt img"></a>
-                                                    <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                                                    <figcaption>
-                                                        <h4 class="aa-product-title"><a href="#">@prod.Name.</a></h4>
-                                                        <span class="aa-product-price">@prod.Price.ToString("#,##0")₫</span><span class="aa-product-price"><del>$65.50</del></span>
-                                                        <p class="aa-product-descrip">@prod.Description</p>
-                                                    </figcaption>
-                                                </figure>
-                                                <div class="aa-product-hvr-content">
-                                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                                                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal" data-name-product="@prod.Name" data-price-product="@prod.Price" data-id-product="@prod.id" data-description-product="@prod.Description" data-category-product="@prod.Category" data-image-product="@prod.Image"><span class="fa fa-search"></span></a>
-                                                </div>
-                                                <!-- product badge -->
-                                                <span class="aa-badge aa-sale" href="#">SALE!</span>
-                                            </li>
-                                        }
-                                    }
-                                </ul>
-                            </div>
-                            <div class="tab-pane fade" id="women">
-                                <ul class="aa-product-catg">
-                                    <!-- start single product item -->
-                                    @foreach (Product prod in Model)
-                                    {
-                                        if (prod.Category == "Women")
-                                        {
-                                            <li>
-                                                <figure>
-                                                    <a class="aa-product-img" href="#"><img src="@prod.Image" width="250" height="300" alt="polo shirt img"></a>
-                                                    <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                                                    <figcaption>
-                                                        <h4 class="aa-product-title"><a href="#">@prod.Name.</a></h4>
-                                                        <span class="aa-product-price">@prod.Price.ToString("#,##0")₫</span><span class="aa-product-price"><del>$65.50</del></span>
-                                                        <p class="aa-product-descrip">@prod.Description</p>
-                                                    </figcaption>
-                                                </figure>
-                                                <div class="aa-product-hvr-content">
-                                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                                                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal" data-name-product="@prod.Name" data-price-product="@prod.Price" data-id-product="@prod.id" data-description-product="@prod.Description" data-category-product="@prod.Category" data-image-product="@prod.Image"><span class="fa fa-search"></span></a>
-                                                </div>
-                                                <!-- product badge -->
-                                                <span class="aa-badge aa-sale" href="#">SALE!</span>
-                                            </li>
-                                        }
-                                    }
-                                </ul>
-                            </div>
+                        <!-- contact map -->
+                        <div class="aa-contact-map">
+                            @*Key API = AIzaSyB-qnLQgxe7Agzq-SxYPEwq-XKl5sNtG6M*@
+                            <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB-qnLQgxe7Agzq-SxYPEwq-XKl5sNtG6M&q=ChIJqxY48mMndTERb5G2QRRxLyg/*" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                         </div>
-                        <!-- quick view modal -->
-                        <div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <div class="row">
-                                            <!-- Modal view slider -->
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <div class="aa-product-view-slider">
-                                                    <div class="simpleLens-gallery-container" id="demo-1">
-                                                        <div class="simpleLens-container">
-                                                            <div class="simpleLens-big-image-container">
-                                                                <a class="simpleLens-lens-image">
-                                                                    <img src="" class="simpleLens-big-image product-image" width="250" height="300">
-                                                                </a>
-                                                            </div>
-                                                        </div>
+                        <!-- Contact address -->
+                        <div class="aa-contact-address">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="aa-contact-address-left">
+                                        <form class="comments-form contact-form" action="">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" placeholder="Your Name" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="email" placeholder="Email" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- Modal view content -->
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <div class="aa-product-view-content">
-                                                    <a class="product-name" style="font-size:xx-large"></a> @*TÊN SẢN PHẨM*@
-                                                    <div class="aa-price-block">
-                                                        <span class="aa-product-view-price product-price"></span> @*GIÁ*@
-                                                        <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" placeholder="Subject" class="form-control">
                                                     </div>
-                                                    <p class="product-description"></p> @*MÔ TẢ*@
-                                                    <h4>Size</h4>
-                                                    <div class="aa-prod-view-size">
-                                                        <a href="">S</a>
-                                                        <a href="">M</a>
-                                                        <a href="">L</a>
-                                                        <a href="">XL</a>
-                                                    </div>
-                                                    <div class="aa-prod-quantity">
-                                                        <form action="">
-                                                            <select name="" id="">
-                                                                <option value="0" selected="1">1</option>
-                                                                <option value="1">2</option>
-                                                                <option value="2">3</option>
-                                                                <option value="3">4</option>
-                                                                <option value="4">5</option>
-                                                                <option value="5">6</option>
-                                                            </select>
-                                                        </form>
-                                                        <p class="aa-prod-category">
-                                                            Category: <a class="product-category"></a> @*CATEGORY*@
-                                                        </p>
-                                                    </div>
-                                                    <div class="aa-prod-view-bottom">
-                                                        <a href="#" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                                                        <a onclick="pro()" class="aa-add-to-cart-btn">View Details</a>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" placeholder="Company" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+                                            </div>
+                                            <button class="aa-secondary-btn">Send</button>
+                                        </form>
                                     </div>
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div>
-                        <!-- / quick view modal -->
-                        <div class="aa-product-catg-pagination">
-                            <nav>
-                                <ul class="pagination">
-                                    <li>
-                                        <a href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li>
-                                        <a href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="aa-contact-address-right">
+                                        <address>
+                                            <h4>DailyShop</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum modi dolor facilis! Nihil error, eius.</p>
+                                            <p><span class="fa fa-home"></span>Huntsville, AL 35813, USA</p>
+                                            <p><span class="fa fa-phone"></span>+ 021.343.7575</p>
+                                            <p><span class="fa fa-envelope"></span>Email: support@dailyshop.com</p>
+                                        </address>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-4 col-md-pull-9">
-                    <aside class="aa-sidebar">
-                        <!-- single sidebar -->
-                        <div class="aa-sidebar-widget">
-                            <h3>Category</h3>
-                            <ul class="tag-cloud">
-                                <li><a href="#" onclick="change('All')">All</a></li>
-                                <li><a href="#men" data-toggle="tab">Men</a></li>
-                                <li><a href="#women" data-toggle="tab">Women</a></li>
-                                <li><a href="#kids" data-toggle="tab">Kids</a></li>
-                                <li><a href="#sports" data-toggle="tab">Sports</a></li>
-                            </ul>
-                        </div>
-                        <!-- single sidebar -->
-                        <div class="aa-sidebar-widget">
-                            <h3>Tags</h3>
-                            <div class="tag-cloud">
-                                <a href="#">Fashion</a>
-                                <a href="#">Ecommerce</a>
-                                <a href="#">Shop</a>
-                                <a href="#">Hand Bag</a>
-                                <a href="#">Laptop</a>
-                                <a href="#">Head Phone</a>
-                                <a href="#">Pen Drive</a>
-                            </div>
-                        </div>
-                        <!-- single sidebar -->
-                        <div class="aa-sidebar-widget">
-                            <h3>Shop By Price</h3>
-                            <!-- price range -->
-                            <div class="aa-sidebar-price-range">
-                                <form action="">
-                                    <div id="skipstep" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
-                                    </div>
-                                    <span id="skip-value-lower" class="example-val">30.00</span>
-                                    <span id="skip-value-upper" class="example-val">100.00</span>
-                                    <button class="aa-filter-btn" type="submit">Filter</button>
-                                </form>
-                            </div>
-
-                        </div>
-                        <!-- single sidebar -->
-                        <div class="aa-sidebar-widget">
-                            <h3>Shop By Color</h3>
-                            <div class="aa-color-tag">
-                                <a class="aa-color-green" href="#"></a>
-                                <a class="aa-color-yellow" href="#"></a>
-                                <a class="aa-color-pink" href="#"></a>
-                                <a class="aa-color-purple" href="#"></a>
-                                <a class="aa-color-blue" href="#"></a>
-                                <a class="aa-color-orange" href="#"></a>
-                                <a class="aa-color-gray" href="#"></a>
-                                <a class="aa-color-black" href="#"></a>
-                                <a class="aa-color-white" href="#"></a>
-                                <a class="aa-color-cyan" href="#"></a>
-                                <a class="aa-color-olive" href="#"></a>
-                                <a class="aa-color-orchid" href="#"></a>
-                            </div>
-                        </div>
-                        <!-- single sidebar -->
-                        <div class="aa-sidebar-widget">
-                            <h3>Recently Views</h3>
-                            <div class="aa-recently-views">
-                                <ul>
-                                    <li>
-                                        <a href="#" class="aa-cartbox-img"><img alt="img" src="/Content/img/woman-small-2.jpg"></a>
-                                        <div class="aa-cartbox-info">
-                                            <h4><a href="#">Product Name</a></h4>
-                                            <p>1 x $250</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="aa-cartbox-img"><img alt="img" src="/Content/img/woman-small-1.jpg"></a>
-                                        <div class="aa-cartbox-info">
-                                            <h4><a href="#">Product Name</a></h4>
-                                            <p>1 x $250</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="aa-cartbox-img"><img alt="img" src="/Content/img/woman-small-2.jpg"></a>
-                                        <div class="aa-cartbox-info">
-                                            <h4><a href="#">Product Name</a></h4>
-                                            <p>1 x $250</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- single sidebar -->
-                        <div class="aa-sidebar-widget">
-                            <h3>Top Rated Products</h3>
-                            <div class="aa-recently-views">
-                                <ul>
-                                    <li>
-                                        <a href="#" class="aa-cartbox-img"><img alt="img" src="/Content/img/woman-small-2.jpg"></a>
-                                        <div class="aa-cartbox-info">
-                                            <h4><a href="#">Product Name</a></h4>
-                                            <p>1 x $250</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="aa-cartbox-img"><img alt="img" src="/Content/img/woman-small-1.jpg"></a>
-                                        <div class="aa-cartbox-info">
-                                            <h4><a href="#">Product Name</a></h4>
-                                            <p>1 x $250</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="aa-cartbox-img"><img alt="img" src="/Content/img/woman-small-2.jpg"></a>
-                                        <div class="aa-cartbox-info">
-                                            <h4><a href="#">Product Name</a></h4>
-                                            <p>1 x $250</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
-
             </div>
         </div>
     </section>
-    <!-- / product category -->
+
     <!-- Subscribe section -->
     <section id="aa-subscribe">
         <div class="container">
@@ -782,8 +552,6 @@
     </div>
 
 
-
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -804,39 +572,7 @@
     <script type="text/javascript" src="/Content/js/nouislider.js"></script>
     <!-- Custom js -->
     <script src="/Content/js/custom.js"></script>
-    <script type="text/javascript">
-        var ID = 0;
-        $('#quick-view-modal').on('show.bs.modal', function (e) {
-            var name = $(e.relatedTarget).data('name-product');
-            var price = $(e.relatedTarget).data('price-product');
-            var description = $(e.relatedTarget).data('description-product');
-            var category = $(e.relatedTarget).data('category-product');
-            $(this).find('.product-name').text(name);
-            $(this).find('.product-description').text(description);
-            $(this).find('.product-price').text(String(price).replace(/(.)(?=(\d{3})+$)/g, '$1,') + " VNĐ");
-            $(this).find('.product-category').text(category);
-            var image = $(e.relatedTarget).data('image-product');
-            $(".product-image").attr("src", image);
-            ID = $(e.relatedTarget).data('id-product');
-        });
-        function pro() {
-            window.location.href = '@Url.Action("ProductDetail", "Item")?data=' + ID;
-        }
-        function change(category) {
-            window.location.href = '@Url.Action("AllProducts", "Item")?data=' + category;
-        }
-    </script>
+
+
 </body>
 </html>
-@*$.ajax({
-        type: "POST",
-        url: "@Url.Action("AllProducts")",
-        dataType: "json",
-        data: { data: categoryname }, // change this
-        success: function (data) {
-            alert(data);
-        },
-        failure: function (errMsg) {
-            alert(errMsg);
-        }
-    });*@

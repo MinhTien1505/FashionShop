@@ -17,16 +17,36 @@ namespace FashionShop.Controllers
 
             return View(db.Products.ToList());
         }
-        public ActionResult AllProducts()
+        public ActionResult AllProducts(string data)
         {
-            return View(db.Products.ToList());
+            if(data == null)
+            {
+                return View(db.Products.ToList());
+            }
+            List<Product> listproduct = new List<Product>();
+            foreach (var item in db.Products)
+            {
+                if(data == "All")
+                {
+                    return View(db.Products.ToList());
+                }
+                else if(item.Category == data)
+                {
+                    listproduct.Add(item);
+                }
+            }
+            return View(listproduct);
         }
-        [HttpPost]
-        public ActionResult Details(int Id)
+        public ActionResult ProductDetail(string data)
         {
-            //find item from db or ...
-            var data = db.Products.Where(i => i.id.Equals(Id));
-            return PartialView(data);
+            int id = Convert.ToInt32(data);
+            Product product = db.Products.Find(id);
+            return View(product);
+
+        }
+        public ActionResult Contact()
+        {
+            return View();
         }
     }
 }

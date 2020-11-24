@@ -25,7 +25,7 @@
 
 .simpleLens-lens-image {
     height: auto !important;
-  /*  width: 250px;*/
+    width: 300px;
     display: inline-block;
     text-align: center;
     margin:0;

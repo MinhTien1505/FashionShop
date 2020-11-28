@@ -149,6 +149,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -179,10 +180,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\demo\chart-area-demo.js" />
+    <Content Include="Content\assets\demo\chart-bar-demo.js" />
+    <Content Include="Content\assets\demo\chart-pie-demo.js" />
+    <Content Include="Content\assets\demo\datatables-demo.js" />
+    <Content Include="Content\assets\img\error-404-monochrome.svg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css-admin\styles.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\jquery.simpleLens.css" />
@@ -288,6 +295,7 @@
     <Content Include="Content\img\women\girl-5.png" />
     <Content Include="Content\img\women\girl-6.png" />
     <Content Include="Content\img\women\girl-7.png" />
+    <Content Include="Content\js-admin\scripts.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\custom.js" />
     <Content Include="Content\js\jquery.simpleGallery.js" />
@@ -385,6 +393,12 @@
     <Content Include="Views\Item\AllProducts.cshtml" />
     <Content Include="Views\Item\ProductDetail.cshtml" />
     <Content Include="Views\Item\Contact.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Tables.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\ManagerProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

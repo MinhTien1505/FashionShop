@@ -1,4 +1,5 @@
 /* CSS Document */
+@import url('jquery.simpleLens.css');
 .simpleLens-thumbnails-container a{
     display: inline-block;
 }

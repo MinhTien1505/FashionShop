@@ -17,20 +17,18 @@ namespace FashionShop.Controllers
 
             return View(db.Products.ToList());
         }
-        public ActionResult AllProducts(string data)
+        public ActionResult AllProducts(string pricemax, string pricemin)
         {
-            if(data == null)
+            double min = Convert.ToDouble(pricemin);
+            double max = Convert.ToDouble(pricemax);
+            if(pricemax == null || pricemin == null)
             {
                 return View(db.Products.ToList());
             }
             List<Product> listproduct = new List<Product>();
             foreach (var item in db.Products)
             {
-                if(data == "All")
-                {
-                    return View(db.Products.ToList());
-                }
-                else if(item.Category == data)
+                if(item.Price >= min && item.Price <= max)
                 {
                     listproduct.Add(item);
                 }

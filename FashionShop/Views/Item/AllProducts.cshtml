@@ -388,7 +388,6 @@
                                                 <figcaption>
                                                     <h4 class="aa-product-title"><a href="#">@prod.Name.</a></h4>
                                                     <span class="aa-product-price">@prod.Price.ToString("#,##0")₫</span><span class="aa-product-price"><del>$65.50</del></span>
-                                                    <p class="aa-product-descrip">@prod.Description</p>
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-product-hvr-content">
@@ -416,7 +415,6 @@
                                                     <figcaption>
                                                         <h4 class="aa-product-title"><a href="#">@prod.Name.</a></h4>
                                                         <span class="aa-product-price">@prod.Price.ToString("#,##0")₫</span><span class="aa-product-price"><del>$65.50</del></span>
-                                                        <p class="aa-product-descrip">@prod.Description</p>
                                                     </figcaption>
                                                 </figure>
                                                 <div class="aa-product-hvr-content">
@@ -445,7 +443,6 @@
                                                     <figcaption>
                                                         <h4 class="aa-product-title"><a href="#">@prod.Name.</a></h4>
                                                         <span class="aa-product-price">@prod.Price.ToString("#,##0")₫</span><span class="aa-product-price"><del>$65.50</del></span>
-                                                        <p class="aa-product-descrip">@prod.Description</p>
                                                     </figcaption>
                                                 </figure>
                                                 <div class="aa-product-hvr-content">
@@ -474,7 +471,6 @@
                                                     <figcaption>
                                                         <h4 class="aa-product-title"><a href="#">@prod.Name.</a></h4>
                                                         <span class="aa-product-price">@prod.Price.ToString("#,##0")₫</span><span class="aa-product-price"><del>$65.50</del></span>
-                                                        <p class="aa-product-descrip">@prod.Description</p>
                                                     </figcaption>
                                                 </figure>
                                                 <div class="aa-product-hvr-content">
@@ -503,7 +499,6 @@
                                                     <figcaption>
                                                         <h4 class="aa-product-title"><a href="#">@prod.Name.</a></h4>
                                                         <span class="aa-product-price">@prod.Price.ToString("#,##0")₫</span><span class="aa-product-price"><del>$65.50</del></span>
-                                                        <p class="aa-product-descrip">@prod.Description</p>
                                                     </figcaption>
                                                 </figure>
                                                 <div class="aa-product-hvr-content">
@@ -637,15 +632,12 @@
                             <h3>Shop By Price</h3>
                             <!-- price range -->
                             <div class="aa-sidebar-price-range">
-                                <form action="">
-                                    <div id="skipstep" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
-                                    </div>
-                                    <span id="skip-value-lower" class="example-val">30.00</span>
-                                    <span id="skip-value-upper" class="example-val">100.00</span>
-                                    <button class="aa-filter-btn" type="submit">Filter</button>
-                                </form>
+                                <div id="skipstep" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
+                                </div>
+                                <span id="skip-value-lower" class="example-val">10</span>
+                                <span id="skip-value-upper" class="example-val">1000</span>
+                                <button class="aa-filter-btn" onclick="filterbyprice()">Filter</button>
                             </div>
-
                         </div>
                         <!-- single sidebar -->
                         <div class="aa-sidebar-widget">
@@ -906,9 +898,45 @@
         function pro() {
             window.location.href = '@Url.Action("ProductDetail", "Item")?data=' + ID;
         }
-        function change(category) {
-            window.location.href = '@Url.Action("AllProducts", "Item")?data=' + category;
+        function filterbyprice() {
+            var pricemax = parseInt((document.getElementById('skip-value-upper').innerHTML))
+            var pricemin = parseInt((document.getElementById('skip-value-lower').innerHTML))
+           window.location.href = '@Url.Action("AllProducts", "Item")?pricemax=' + pricemax + '&pricemin=' + pricemin;
         }
+    </script>
+    <script>
+        jQuery(function () {
+            if ($('body').is('.productPage')) {
+                var skipSlider = document.getElementById('skipstep');
+                noUiSlider.create(skipSlider, {
+                    range: {
+                        'min': 0,
+                        '10%': 100000,
+                        '20%': 200000,
+                        '30%': 300000,
+                        '40%': 400000,
+                        '50%': 500000,
+                        '60%': 600000,
+                        '70%': 700000,
+                        '80%': 800000,
+                        '90%': 900000,
+                        'max': 1000000
+                    },
+                    snap: true,
+                    connect: true,
+                    start: [100000, 800000]
+                });
+                // for value print
+                var skipValues = [
+                    document.getElementById('skip-value-lower'),
+                    document.getElementById('skip-value-upper')
+                ];
+
+                skipSlider.noUiSlider.on('update', function (values, handle) {
+                    skipValues[handle].innerHTML = values[handle];
+                });
+            }
+        });
     </script>
 </body>
 </html>

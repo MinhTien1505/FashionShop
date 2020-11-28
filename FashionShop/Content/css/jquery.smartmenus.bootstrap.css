@@ -5,6 +5,7 @@
  These are theme independent and should work with any Bootstrap 3 theme mod.
 */
 /* sub menus arrows on desktop */
+@import url('jquery.smartmenus.bootstrap.css');
 .navbar-nav:not(.sm-collapsible) ul .caret {
 	position: absolute;
 	right: 0;

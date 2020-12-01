@@ -1,10 +1,12 @@
 ﻿using FashionShop.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Mvc;
 
 namespace FashionShop.Controllers
@@ -62,7 +64,7 @@ namespace FashionShop.Controllers
                 product.Image = "/imageProduct/" + product.Name + ".PNG";
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Tables","Admin");
+                return RedirectToAction("ManagerProducts","Admin");
             }
             return View(product);
         }
@@ -88,6 +90,25 @@ namespace FashionShop.Controllers
             db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Tables", "Admin");
+        }
+        public void ClearApplicationCache()
+        {
+            List<string> keys = new List<string>();
+            Cache cache = new Cache();
+            // retrieve application Cache enumerator
+            IDictionaryEnumerator enumerator = cache.GetEnumerator();
+
+            // copy all keys that currently exist in Cache
+            while (enumerator.MoveNext())
+            {
+                keys.Add(enumerator.Key.ToString());
+            }
+
+            // delete every key from cache
+            for (int i = 0; i < keys.Count; i++)
+            {
+                cache.Remove(keys[i]);
+            }
         }
     }
 }

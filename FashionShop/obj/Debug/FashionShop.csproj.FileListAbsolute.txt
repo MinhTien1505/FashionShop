@@ -82,7 +82,6 @@ D:\WEB\FashionShop\FashionShop\bin\System.Net.Http.Formatting.xml
 D:\WEB\FashionShop\FashionShop\bin\System.Web.Http.xml
 D:\WEB\FashionShop\FashionShop\bin\System.Web.Http.WebHost.xml
 D:\WEB\FashionShop\FashionShop\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\WEB\FashionShop\FashionShop\obj\Debug\FashionShop.csprojAssemblyReference.cache
 D:\WEB\FashionShop\FashionShop\obj\Debug\FashionShop.csproj.CoreCompileInputs.cache
 D:\WEB\FashionShop\FashionShop\obj\Debug\FashionShop.csproj.CopyComplete
 D:\WEB\FashionShop\FashionShop\obj\Debug\FashionShop.dll
@@ -91,3 +90,4 @@ D:\WEB\FashionShop\FashionShop\bin\PagedList.dll
 D:\WEB\FashionShop\FashionShop\bin\PagedList.Mvc.dll
 D:\WEB\FashionShop\FashionShop\bin\PagedList.xml
 D:\WEB\FashionShop\FashionShop\bin\PagedList.Mvc.xml
+D:\WEB\FashionShop\FashionShop\obj\Debug\FashionShop.csprojAssemblyReference.cache

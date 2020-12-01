@@ -165,9 +165,9 @@
                                                 <td>@prod.Description</td>
                                                 <td>@prod.Category</td>
                                                 <td>
-                                                    @Html.ActionLink("Delete", "Delete", new { id = prod.id })
-                                                    @Html.ActionLink("Details", "Details", new { id = prod.id })
-                                                    @Html.ActionLink("Edit", "Edit", new { id = prod.id })
+                                                    <button class="btn btn-danger  btn-sm rounded-0"><i class="fa fa-trash "></i>@Html.ActionLink("Delete", "Delete", new { id = prod.id }, new {Style = "color:White;" })</button>
+                                                    <button class="btn btn-success  btn-sm rounded-0"><i class="fa fa-table"></i>@Html.ActionLink("Details", "Details", new { id = prod.id }, new { Style = "color:White;" })</button>
+                                                    <button class="btn btn-primary  btn-sm rounded-0 "><i class="fa fa-edit "></i>@Html.ActionLink("Edit", "Edit", new { id = prod.id }, new { Style = "color:White;" })</button> 
                                                 </td>
                                             </tr>
                                         }

@@ -100,7 +100,7 @@
                             <i class="fas fa-table mr-1"></i>
                             Product Detail
                         </div>
-                        @using (Html.BeginForm())
+                        @using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { encType = "multipart/form-data" }))
                         {
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -141,7 +141,8 @@
                                         </tbody>
                                     </table>
                                     @Html.ActionLink("Back to List", "ManagerProducts")
-                                    <input type="submit" value="Save" class="btn btn-default" />
+                                    <br />
+                                    <input type="submit" value="Save" class="btn-info" />
                                 </div>
                             </div>
                         }
